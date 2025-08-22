@@ -1,31 +1,46 @@
-# Matrix-AI 🚀
+# ⚡ Matrix-AI 🚀  
 
-Matrix-AI is a powerful SaaS application that brings multiple AI tools under one platform.  
-It simplifies daily tasks with automation and AI-driven features designed for productivity, creativity, and efficiency.  
+<p align="center">
+  <img src="https://dummyimage.com/400x120/0f172a/ffffff&text=Matrix-AI" alt="Matrix-AI Logo" width="400"/>
+</p>  
 
----
-
-## ✨ Features
-- 🖼️ **Background Remover** – Remove image backgrounds instantly.  
-- 📄 **Resume Analyzer** – Get AI-powered insights on resumes.  
-- 🎨 **Object Remover** – Erase unwanted objects from images.  
-- 📝 **AI Content Generator** – Create high-quality content with AI.  
-- ⚡ **All-in-One Dashboard** – Manage all tools seamlessly.  
+<p align="center">
+  <b>One Platform. Multiple AI Tools. Infinite Possibilities.</b>  
+</p>  
 
 ---
 
-## 🛠️ Tech Stack
-- **Frontend:** React.js, Tailwind CSS  
-- **Backend:** Node.js, Express.js  
+## ✨ Features  
+
+✅ 🖼️ **Background Remover** – Instantly erase image backgrounds.  
+✅ 📄 **Resume Analyzer** – AI-powered career insights.  
+✅ 🎨 **Object Remover** – Clean up images like magic.  
+✅ 📝 **AI Content Generator** – Generate engaging, high-quality text.  
+✅ ⚡ **All-in-One Dashboard** – Manage tools seamlessly in one place.  
+
+---
+
+## 🛠️ Tech Stack  
+
+<p align="center">
+  <img src="https://cdn.worldvectorlogo.com/logos/react-2.svg" alt="React" width="60" height="60"/> &nbsp;&nbsp;
+  <img src="https://cdn.worldvectorlogo.com/logos/tailwindcss.svg" alt="Tailwind" width="60" height="60"/> &nbsp;&nbsp;
+  <img src="https://cdn.worldvectorlogo.com/logos/nodejs-icon.svg" alt="Node.js" width="60" height="60"/> &nbsp;&nbsp;
+  <img src="https://cdn.worldvectorlogo.com/logos/express-109.svg" alt="Express" width="60" height="60"/> &nbsp;&nbsp;
+  <img src="https://cdn.worldvectorlogo.com/logos/mongodb-icon-1.svg" alt="MongoDB" width="60" height="60"/> &nbsp;&nbsp;
+  <img src="https://cdn.worldvectorlogo.com/logos/vercel.svg" alt="Vercel" width="60" height="60"/> &nbsp;&nbsp;
+</p>  
+
+- **Frontend:** React.js + Tailwind CSS  
+- **Backend:** Node.js + Express.js  
 - **Database:** MongoDB  
-- **AI/ML:** OpenAI / Custom AI APIs  
 - **Hosting:** Vercel / Netlify / Render  
 
 ---
 
-## 🚀 Getting Started
+## 🚀 Getting Started  
 
-### 1. Clone the repo
+### 1️⃣ Clone the Repository  
 ```bash
 git clone https://github.com/hars123/matrix-ai.git
 cd matrix-ai
