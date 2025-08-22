@@ -27,5 +27,5 @@ It simplifies daily tasks with automation and AI-driven features designed for pr
 
 ### 1. Clone the repo
 ```bash
-git clone https://github.com/your-username/matrix-ai.git
+git clone https://github.com/hars123/matrix-ai.git
 cd matrix-ai
