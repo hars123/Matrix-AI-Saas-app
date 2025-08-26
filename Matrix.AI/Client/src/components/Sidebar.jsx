@@ -28,61 +28,70 @@ const Sidebar = ({ sidebar, setSidebar }) => {
   const { signOut, openUserProfile } = useClerk();
 
   return (
-    <div
-      className={`w-60 bg-white border-r border-gray-200 flex flex-col justify-between items-center max-sm:absolute top-14 bottom-0 z-50
-      transition-transform duration-300 ease-in-out
-      ${sidebar ? "translate-x-0" : "max-sm:translate-x-full"}`}
-    >
-      <div className="my-7 w-full px-3">
-        {/* User Avatar */}
-        <img
-          src={user?.imageUrl}
-          alt="User avatar"
-          className="w-16 h-16 rounded-full mx-auto"
-        />
-        <h1 className="mt-2 text-center font-medium">{user?.fullName}</h1>
+    <>
+      {/* Backdrop for mobile */}
+      {sidebar && (
+        <div
+          onClick={() => setSidebar(false)}
+          className="fixed inset-0 bg-black/40 lg:hidden z-40"
+        ></div>
+      )}
 
-        {/* Navigation Links */}
-        <div className="mt-6 space-y-2">
-          {navItems.map(({ to, label, Icon }) => (
-            <NavLink
-              key={to}
-              to={to}
-              // ✅ only Dashboard should use "end"
-              end={to === "/ai"}
-              onClick={() => setSidebar(false)}
-              className={({ isActive }) =>
-                `px-4 py-2 flex items-center gap-3 rounded-md text-sm font-medium transition 
-                 ${
-                   isActive
-                     ? "bg-gradient-to-r from-[#3C81F6] to-[#9234EA] text-white"
-                     : "text-gray-600 hover:bg-gray-100"
-                 }`
-              }
-            >
-              <Icon className="w-4 h-4" />
-              {label}
-            </NavLink>
-          ))}
+      <div
+        className={`fixed lg:static top-0 left-0 h-full w-60 max-sm:w-3/4 bg-white border-r border-gray-200 flex flex-col justify-between items-center z-50
+        transform transition-transform duration-300 ease-in-out
+        ${sidebar ? "translate-x-0" : "-translate-x-full lg:translate-x-0"}`}
+      >
+        <div className="my-7 w-full px-3">
+          {/* User Avatar */}
+          <img
+            src={user?.imageUrl}
+            alt="User avatar"
+            className="w-16 h-16 rounded-full mx-auto"
+          />
+          <h1 className="mt-2 text-center font-medium">{user?.fullName}</h1>
+
+          {/* Navigation Links */}
+          <div className="mt-6 space-y-2">
+            {navItems.map(({ to, label, Icon }) => (
+              <NavLink
+                key={to}
+                to={to}
+                end={to === "/ai"}
+                onClick={() => setSidebar(false)}
+                className={({ isActive }) =>
+                  `px-4 py-2 flex items-center gap-3 rounded-md text-sm font-medium transition 
+                   ${
+                     isActive
+                       ? "bg-gradient-to-r from-[#3C81F6] to-[#9234EA] text-white"
+                       : "text-gray-600 hover:bg-gray-100"
+                   }`
+                }
+              >
+                <Icon className="w-4 h-4" />
+                {label}
+              </NavLink>
+            ))}
+          </div>
+        </div>
+
+        {/* Footer actions */}
+        <div className="w-full px-3 pb-6">
+          <button
+            onClick={() => openUserProfile()}
+            className="w-full py-2 text-sm text-gray-600 hover:bg-gray-100 rounded"
+          >
+            Profile
+          </button>
+          <button
+            onClick={() => signOut()}
+            className="w-full py-2 text-sm text-red-600 hover:bg-red-50 rounded mt-2"
+          >
+            Sign Out
+          </button>
         </div>
       </div>
-
-      {/* Footer actions */}
-      <div className="w-full px-3 pb-6">
-        <button
-          onClick={() => openUserProfile()}
-          className="w-full py-2 text-sm text-gray-600 hover:bg-gray-100 rounded"
-        >
-          Profile
-        </button>
-        <button
-          onClick={() => signOut()}
-          className="w-full py-2 text-sm text-red-600 hover:bg-red-50 rounded mt-2"
-        >
-          Sign Out
-        </button>
-      </div>
-    </div>
+    </>
   );
 };
 
