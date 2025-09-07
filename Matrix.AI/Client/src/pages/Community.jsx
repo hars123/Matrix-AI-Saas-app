@@ -1,15 +1,62 @@
 import React, { useEffect, useState } from 'react'
-import { useUser } from '@clerk/clerk-react'
+import { useAuth, useUser } from '@clerk/clerk-react'
 import { dummyPublishedCreationData } from '../assets/assets'
 import { Heart } from 'lucide-react'
+import axios from "axios";
+import toast from "react-hot-toast";
+
+axios.defaults.baseURL = import.meta.env.VITE_BASE_URL;
 
 const Community = () => {
   const [creations, setCreations] = useState([])
   const { user } = useUser()
+  const [Loading, setLoading] = useState(true)
+  const {getToken} = useAuth()
 
   const fetchCreations = async () => {
-    setCreations(dummyPublishedCreationData)
+   try {
+     const{data} = await axios.get('/api/user/get-published-creations',{
+      headers : { Authorization : `Bearer ${await getToken()}`}
+    })
+    if(data.success){
+      setCreations(data.creations)
+    }else{
+      toast.error(data.message)
+    }
+   } catch (error) {
+    toast.error(error.message)
+    
+   }
+   setLoading(false)
   }
+
+
+  const imageLikeToggle = async (id) => {
+    try {
+      const { data } = await axios.post(
+        "/api/v1/user/toggle-like-creations",
+        { id },
+        {
+          headers: { Authorization: `Bearer ${await getToken()}` },
+        }
+      );
+
+      if (data?.success) {
+        toast.success(data?.message || "Success!");
+        await fetchCreations();
+      } else {
+        toast.error(data?.message || "Failed to toggle like.");
+      }
+    } catch (error) {
+      if (error.response && error.response.data && error.response.data.message) {
+        toast.error(error.response.data.message || "Request failed.");
+      } else {
+        toast.error(error.message || "An unexpected error occurred.");
+      }
+    } finally {
+      setLoading(false);
+    }
+  };
 
   useEffect(() => {
     if (user) {
@@ -33,7 +80,7 @@ const Community = () => {
     )
   }
 
-  return (
+  return !Loading ? (
     <div className="flex-1 h-full flex flex-col gap-4 p-6">
       <h2 className="text-xl font-semibold">Creations</h2>
 
@@ -69,7 +116,25 @@ const Community = () => {
         ))}
       </div>
     </div>
+  ) : (
+    <div className='flex justify-center items-center h-full'>
+       <span className='w-10 h-10 my-1 rounded-full border-3 border-primary border-t-transparent animate-spin'></span>
+    </div>
   )
 }
 
 export default Community
+
+
+
+
+
+
+
+
+
+
+
+
+
+
