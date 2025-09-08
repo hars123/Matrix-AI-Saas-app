@@ -61,9 +61,9 @@ export default function Footer() {
       <div className="pt-6 pb-8 flex flex-col sm:flex-row justify-between items-center text-xs md:text-sm text-gray-500">
         <p>© {new Date().getFullYear()} QuickAI Tool Manager. All rights reserved.</p>
         <div className="flex gap-4 mt-2 sm:mt-0">
-          <a href="#" className="hover:text-primary">Twitter</a>
-          <a href="#" className="hover:text-primary">LinkedIn</a>
-          <a href="#" className="hover:text-primary">GitHub</a>
+         
+          <a href="https://github.com/hars123" className="hover:text-primary">LinkedIn</a>
+          <a href="https://www.linkedin.com/in/harshit1231/" className="hover:text-primary">GitHub</a>
         </div>
       </div>
     </footer>
