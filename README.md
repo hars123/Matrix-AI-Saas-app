@@ -1,8 +1,5 @@
-# ⚡ Matrix-AI 🚀  
+# ⚡ Quick-AI 🚀  
 
-<p align="center">
-  <img src="https://dummyimage.com/400x120/0f172a/ffffff&text=Matrix-AI" alt="Matrix-AI Logo" width="400"/>
-</p>  
 
 <p align="center">
   <b>One Platform. Multiple AI Tools. Infinite Possibilities.</b>  
